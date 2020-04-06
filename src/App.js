@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import './components/Todo.css';
+import './App.css';
 
 const myList = [
   {
@@ -51,14 +51,21 @@ class App extends React.Component {
     })
   }
 
+  clearTask = event => {
+    event.preventDefault();
+    this.setState({
+      myList: this.state.myList.filter(item => !item.completed)
+    })
+  }
+
   render() {
     return (
-      <div>
+      <div className="appCard">
         <div>
           <h2>Welcome to your Todo App!</h2>
           <TodoForm addItem={this.addItem}/>
         </div>
-        <TodoList myList={this.state.myList} toggleTask={this.toggleTask}/>
+        <TodoList myList={this.state.myList} toggleTask={this.toggleTask} clearTask={this.clearTask}/>
       </div>
     );
   }
