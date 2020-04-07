@@ -1,7 +1,15 @@
 .item.completed {
     text-decoration: line-through;
-    background-color:pink;
+    background-color:red;
+    width:20%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:2% auto;
 }
 .addButton{
     margin-left:2%;
+}
+button{
+    margin-top: 2%;
 }
